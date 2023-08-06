@@ -76,13 +76,8 @@
 </template>
 
 <script setup lang="ts">
-import { CogIcon } from '@heroicons/vue/24/outline';
-import {
-  PlusCircleIcon,
-  BookOpenIcon,
-  CheckCircleIcon,
-  MinusCircleIcon,
-} from '@heroicons/vue/24/solid';
+import { CogIcon, MinusCircleIcon } from '@heroicons/vue/24/outline';
+import { PlusCircleIcon, BookOpenIcon, CheckCircleIcon } from '@heroicons/vue/24/solid';
 import dayjs from 'dayjs';
 
 const today = dayjs();
@@ -94,5 +89,5 @@ for (let i = 1; i < 7; i++) {
   last7days.push(res);
 }
 
-console.log('last7days', last7days);
+// console.log('last7days', last7days);
 </script>
