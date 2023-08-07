@@ -114,7 +114,7 @@
         </div>
         <div class="flex items-center">
           <p class="text-neutral-300 mr-1 text-sm">0/1</p>
-          <MinusCircleIcon class="font-bold w-12 text-blue-500" />
+          <MinusCircleIcon class="font-bold w-12 text-lime-500" />
         </div>
       </div>
     </main>
