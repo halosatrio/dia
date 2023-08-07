@@ -14,7 +14,7 @@
     <!-- last 7 days section -->
     <div class="mt-4 flex flex-row-reverse justify-between">
       <div
-        class="bg-neutral-600 rounded-lg py-1 flex flex-col items-center w-11"
+        class="bg-neutral-700 rounded-lg py-1 flex flex-col items-center w-11"
         v-for="day in last7days"
         :key="last7days.indexOf(day)"
       >
@@ -25,21 +25,21 @@
 
     <!-- main section -->
     <main class="mt-8">
-      <div class="flex justify-between rounded-lg bg-neutral-600 p-2 mb-4">
+      <div class="flex justify-between rounded-lg bg-neutral-700 p-2 mb-4">
         <div class="flex items-center">
           <div class="w-12 h-12 flex bg-rose-600 items-center justify-center rounded-full">
             <BookOpenIcon class="w-8 text-neutral-200" />
           </div>
           <div class="ml-3 flex flex-col">
-            <span class="mb-1 text-xl font-bold text-neutral-200">READ</span>
-            <div class="flex gap-1">
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
+            <span class="text-xl font-bold text-neutral-200">READ</span>
+            <div class="flex gap-1 items-center">
+              <div class="w-4 h-4 bg-rose-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-rose-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-rose-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-rose-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
             </div>
           </div>
         </div>
@@ -48,21 +48,67 @@
           <CheckCircleIcon class="font-bold w-12 text-rose-500" />
         </div>
       </div>
-      <div class="flex justify-between rounded-lg bg-neutral-600 p-2">
+      <div class="flex justify-between rounded-lg bg-neutral-700 p-2 mb-4">
         <div class="flex items-center">
           <div class="w-12 h-12 flex bg-blue-600 items-center justify-center rounded-full">
             <BookOpenIcon class="w-8 text-neutral-200" />
           </div>
           <div class="ml-3 flex flex-col">
-            <span class="mb-1 text-xl font-bold text-neutral-200">CODE</span>
-            <div class="flex gap-1">
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-              <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
+            <span class="text-xl font-bold text-neutral-200">CODE</span>
+            <div class="flex gap-1 items-center">
+              <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
+              <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
+              <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
+              <div class="w-4 h-4 border-[3px] border-neutral-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <p class="text-neutral-300 mr-1 text-sm">0/1</p>
+          <MinusCircleIcon class="font-bold w-12 text-blue-500" />
+        </div>
+      </div>
+      <div class="flex justify-between rounded-lg bg-neutral-700 p-2 mb-4">
+        <div class="flex items-center">
+          <div class="w-12 h-12 flex bg-yellow-500 items-center justify-center rounded-full">
+            <BookOpenIcon class="w-8 text-neutral-200" />
+          </div>
+          <div class="ml-3 flex flex-col">
+            <span class="text-xl font-bold text-neutral-200">WORKOUT</span>
+            <div class="flex gap-1 items-center">
+              <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+              <div class="w-4 h-4 border-[3px] border-neutral-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <p class="text-neutral-300 mr-1 text-sm">0/1</p>
+          <MinusCircleIcon class="font-bold w-12 text-yellow-400" />
+        </div>
+      </div>
+      <div class="flex justify-between rounded-lg bg-neutral-700 p-2 mb-4">
+        <div class="flex items-center">
+          <div class="w-12 h-12 flex bg-lime-500 items-center justify-center rounded-full">
+            <BookOpenIcon class="w-8 text-neutral-200" />
+          </div>
+          <div class="ml-3 flex flex-col">
+            <span class="text-xl font-bold text-neutral-200">LEARN SPANISH</span>
+            <div class="flex gap-1 items-center">
+              <div class="w-4 h-4 bg-lime-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-lime-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-lime-500 rounded-full"></div>
+              <div class="w-4 h-4 border-[3px] border-neutral-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
+              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
             </div>
           </div>
         </div>
