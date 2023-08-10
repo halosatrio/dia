@@ -1,0 +1,75 @@
+<template>
+  <div class="w-full max-w-[480px] h-screen bg-zinc-800 my-0 mx-auto">
+    <header class="flex justify-between bg-rose-600 h-20 px-5">
+      <div class="flex items-center">
+        <div class="w-12 h-12 flex bg-neutral-200 items-center justify-center rounded-full">
+          <BookOpenIcon class="w-8 text-rose-600" />
+        </div>
+        <span class="ml-3 text-2xl font-bold text-neutral-200">READ</span>
+      </div>
+      <button class="text-xl font-bold text-neutral-200">Edit</button>
+    </header>
+
+    <main class="p-4">
+      <!-- section 1 -->
+      <div class="rounded-xl bg-zinc-700 py-3 px-4 grid grid-cols-3 gap-4 mb-4">
+        <div class="border-r pr-3 border-neutral-600 flex flex-col items-center">
+          <p class="text-rose-500 font-bold">
+            {{ dayjs().format('MMM DD, YYYY') }}
+          </p>
+          <p class="text-neutral-400 text-xs">STARTED</p>
+        </div>
+        <div class="border-r pr-3 border-neutral-600 flex flex-col items-center">
+          <p class="text-rose-500 font-bold">1x</p>
+          <p class="text-neutral-400 text-xs">PER DAY</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <p class="text-rose-500 font-bold">7 days</p>
+          <p class="text-neutral-400 text-xs">PER WEEK</p>
+        </div>
+      </div>
+
+      <!-- section 2 -->
+      <div class="grid grid-cols-2 gap-2 mb-2">
+        <div class="rounded-xl bg-zinc-700 py-2 px-3">
+          <p class="text-neutral-200 font-bold">Score</p>
+          <p class="text-rose-500 mt-4">LINE GRAPH</p>
+        </div>
+        <div class="rounded-xl bg-zinc-700 py-2 px-3">
+          <p class="text-neutral-200 font-bold">Best Day</p>
+          <p class="text-rose-500 mt-4">BAR GRAPH</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <div class="rounded-xl bg-zinc-700 py-2 px-3">
+          <p class="text-neutral-200 font-bold mb-4">Goal Reached</p>
+          <span class="text-rose-500 font-bold text-4xl">263</span
+          ><span class="text-neutral-200 ml-1 text-xl font-bold">days</span>
+        </div>
+        <div class="rounded-xl bg-zinc-700 py-2 px-3">
+          <p class="text-neutral-200 font-bold mb-4">Daily Average</p>
+          <span class="text-rose-500 font-bold text-4xl">0.9</span
+          ><span class="text-neutral-200 ml-1 text-xl font-bold">times</span>
+        </div>
+      </div>
+
+      <!-- section 3: heatmap -->
+      <div class="rounded-xl bg-zinc-700 py-3 px-4 grid grid-cols-3 gap-4 mb-4">
+        <p class="text-neutral-200 font-bold mb-4">Last 6 Months</p>
+      </div>
+
+      <!-- section 4: calendar -->
+      <div class="rounded-xl bg-zinc-700 py-3 px-4 grid grid-cols-3 gap-4 mb-4">
+        <p class="text-neutral-200 font-bold mb-4">Calendar</p>
+      </div>
+    </main>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { BookOpenIcon } from '@heroicons/vue/24/solid';
+import dayjs from 'dayjs';
+
+// const today = dayjs().format('MMM DD, YYYY');
+</script>
