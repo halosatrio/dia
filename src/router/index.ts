@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import MainScreen from '@/components/MainScreen.vue';
 import AddEditScreen from '@/components/AddEditScreen.vue';
 import DetailHabit from '@/components/DetailHabit.vue';
-import SortItem from '@/components/SortItem.vue';
+import SortItemScreen from '@/components/SortItemScreen.vue';
+import SettingScreen from '@/components/SettingScreen.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,9 +24,14 @@ const router = createRouter({
       component: DetailHabit,
     },
     {
-      path: '/settings/sort',
+      path: '/setting',
+      name: 'setting',
+      component: SettingScreen,
+    },
+    {
+      path: '/setting/sort',
       name: 'sort',
-      component: SortItem,
+      component: SortItemScreen,
     },
   ],
 });
