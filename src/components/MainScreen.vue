@@ -3,12 +3,14 @@
     <!-- header -->
     <header class="flex justify-between">
       <div class="flex">
-        <CogIcon class="h-8 text-neutral-500 mr-2" />
+        <RouterLink to="/setting">
+          <CogIcon class="h-8 text-neutral-500 mr-2" />
+        </RouterLink>
         <span class="text-zinc-100 text-2xl font-bold">TODAY</span>
       </div>
-      <div>
+      <RouterLink to="/edit">
         <PlusCircleIcon class="h-8 text-rose-600" />
-      </div>
+      </RouterLink>
     </header>
 
     <!-- last 7 days section -->
@@ -25,7 +27,7 @@
 
     <!-- main section -->
     <main class="mt-8">
-      <div class="flex justify-between rounded-lg bg-neutral-700 p-2 mb-4">
+      <RouterLink to="/detail/1" class="flex justify-between rounded-lg bg-neutral-700 p-2 mb-4">
         <div class="flex items-center">
           <div class="w-12 h-12 flex bg-rose-600 items-center justify-center rounded-full">
             <BookOpenIcon class="w-8 text-neutral-200" />
@@ -47,7 +49,8 @@
           <p class="text-neutral-300 mr-1 text-sm">1/1</p>
           <CheckCircleIcon class="font-bold w-12 text-rose-500" />
         </div>
-      </div>
+      </RouterLink>
+
       <div class="flex justify-between rounded-lg bg-neutral-700 p-2 mb-4">
         <div class="flex items-center">
           <div class="w-12 h-12 flex bg-blue-600 items-center justify-center rounded-full">
@@ -122,6 +125,7 @@
 </template>
 
 <script setup lang="ts">
+import { RouterLink } from 'vue-router';
 import { CogIcon, MinusCircleIcon } from '@heroicons/vue/24/outline';
 import { PlusCircleIcon, BookOpenIcon, CheckCircleIcon } from '@heroicons/vue/24/solid';
 import dayjs from 'dayjs';
