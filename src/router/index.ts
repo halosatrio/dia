@@ -4,6 +4,7 @@ import AddEditScreen from '@/components/AddEditScreen.vue';
 import DetailHabit from '@/components/DetailHabit.vue';
 import SortItemScreen from '@/components/SortItemScreen.vue';
 import SettingScreen from '@/components/SettingScreen.vue';
+import AboutScreen from '@/components/AboutScreen.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/setting/sort',
       name: 'sort',
       component: SortItemScreen,
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: AboutScreen,
     },
   ],
 });
