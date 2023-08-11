@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import MainScreen from '@/components/MainScreen.vue';
-import AddEditScreen from '@/components/AddEditScreen.vue';
-import DetailHabit from '@/components/DetailHabit.vue';
-import SortItemScreen from '@/components/SortItemScreen.vue';
-import SettingScreen from '@/components/SettingScreen.vue';
-import AboutScreen from '@/components/AboutScreen.vue';
+import MainScreen from '@/components/screens/MainScreen.vue';
+import AddEditScreen from '@/components/screens/AddEditScreen.vue';
+import DetailHabit from '@/components/screens/DetailHabit.vue';
+import SortItemScreen from '@/components/screens/SortItemScreen.vue';
+import SettingScreen from '@/components/screens/SettingScreen.vue';
+import AboutScreen from '@/components/screens/AboutScreen.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
