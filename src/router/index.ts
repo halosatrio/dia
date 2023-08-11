@@ -17,7 +17,7 @@ const router = createRouter({
       component: AddEditScreen,
     },
     {
-      path: '/detail',
+      path: '/detail/:id',
       name: 'detail',
       component: DetailHabit,
     },

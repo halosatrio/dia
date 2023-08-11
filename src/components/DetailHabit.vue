@@ -1,5 +1,6 @@
 <template>
   <div class="w-full max-w-[480px] h-screen bg-zinc-800 my-0 mx-auto">
+    <!-- header -->
     <header class="flex justify-between bg-rose-600 h-20 px-5">
       <div class="flex items-center">
         <div class="w-12 h-12 flex bg-neutral-200 items-center justify-center rounded-full">
@@ -12,14 +13,14 @@
 
     <main class="p-4">
       <!-- section 1 -->
-      <div class="rounded-xl bg-zinc-700 py-3 px-4 grid grid-cols-3 gap-4 mb-4">
-        <div class="border-r pr-3 border-neutral-600 flex flex-col items-center">
+      <div class="rounded-xl bg-zinc-700 px-2 py-3 grid grid-cols-3 mb-4">
+        <div class="border-r pr-1 border-neutral-600 flex flex-col items-center">
           <p class="text-rose-500 font-bold">
             {{ dayjs().format('MMM DD, YYYY') }}
           </p>
           <p class="text-neutral-400 text-xs">STARTED</p>
         </div>
-        <div class="border-r pr-3 border-neutral-600 flex flex-col items-center">
+        <div class="border-r border-neutral-600 flex flex-col items-center">
           <p class="text-rose-500 font-bold">1x</p>
           <p class="text-neutral-400 text-xs">PER DAY</p>
         </div>
@@ -55,21 +56,50 @@
       </div>
 
       <!-- section 3: heatmap -->
-      <div class="rounded-xl bg-zinc-700 py-3 px-4 grid grid-cols-3 gap-4 mb-4">
+      <div class="rounded-xl bg-zinc-700 py-3 px-4 mb-4">
         <p class="text-neutral-200 font-bold mb-4">Last 6 Months</p>
+        <CalendarHeatmap :values="res" :end-date="dayjs().format('YYYY-MM-DD')" :tooltip="false" />
       </div>
 
       <!-- section 4: calendar -->
-      <div class="rounded-xl bg-zinc-700 py-3 px-4 grid grid-cols-3 gap-4 mb-4">
+      <div class="rounded-xl bg-zinc-700 py-3 px-4 mb-4">
         <p class="text-neutral-200 font-bold mb-4">Calendar</p>
+        <Calendar transparent borderless expanded is-dark />
       </div>
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
+import { Calendar } from 'v-calendar';
+import 'v-calendar/style.css';
+import { CalendarHeatmap } from 'vue3-calendar-heatmap';
+
 import { BookOpenIcon } from '@heroicons/vue/24/solid';
+
 import dayjs from 'dayjs';
 
-// const today = dayjs().format('MMM DD, YYYY');
+let currentMonth = dayjs().month();
+let last2month = dayjs().subtract(2, 'month').month();
+
+interface ObjProps {
+  date: string;
+  count: number;
+}
+
+let res: Array<ObjProps> = [];
+for (let m = last2month; m < currentMonth; m++) {
+  let lastDateOfMonth = dayjs().month(m).endOf('month');
+  for (let d = 1; d <= lastDateOfMonth.date(); d++) {
+    let obj: ObjProps = { date: '', count: 1 };
+    obj.date = dayjs().month(m).date(d).format('YYYY-MM-DD');
+    res.push(obj);
+  }
+}
+
+console.log('res', res);
+
+// console.log('now', now);
+// console.log('currentMonth', currentMonth);
+// console.log('last2month', last2month);
 </script>

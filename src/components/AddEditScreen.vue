@@ -28,7 +28,7 @@
               <p class="ml-4 inline text-neutral-50">Start Date</p>
             </div>
             <div>
-              <Datepicker v-model="date" />
+              <Datepicker v-model="date" :enable-time-picker="false" />
               <!-- <input type="date" /> -->
             </div>
           </div>
