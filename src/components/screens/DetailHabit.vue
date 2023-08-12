@@ -97,7 +97,7 @@ for (let m = last2month; m < currentMonth; m++) {
   }
 }
 
-console.log('res', res);
+// console.log('res', res);
 
 // console.log('now', now);
 // console.log('currentMonth', currentMonth);

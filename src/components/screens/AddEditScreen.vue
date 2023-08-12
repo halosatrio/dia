@@ -12,29 +12,33 @@
           />
         </div>
         <div class="py-4 pl-4 rounded-lg mr-4 bg-neutral-700 w-full">
-          <div class="flex">
-            <button class="mr-4 p-2 mb-4 w-8 h-8 rounded-md bg-lime-500"></button>
-            <div class="w-full flex pb-4 justify-between border-b border-neutral-600">hehehe</div>
+          <div class="flex items-center">
+            <!-- <button class="mr-4 p-2 mb-4 w-8 h-8 rounded-md bg-lime-500"></button> -->
+            <div class="mr-4 p-1 mb-4 rounded-md bg-neutral-500">
+              <FireIcon class="w-6 text-neutral-50" />
+            </div>
+            <div class="w-full text-neutral-50 pb-4 border-b border-neutral-600">1x per day</div>
           </div>
-          <div class="flex mt-4">
-            <button class="mr-4 p-2 w-8 h-8 rounded-md bg-lime-500"></button>
-            <div class="w-full flex justify-between">hehehe</div>
+          <div class="flex mt-3 items-center">
+            <div class="mr-4 p-1 rounded-md bg-neutral-500">
+              <ArrowPathRoundedSquareIcon class="w-6 text-neutral-50" />
+            </div>
+            <div class="w-full text-neutral-50">7 days per</div>
           </div>
         </div>
         <div class="p-4 rounded-lg mr-4 bg-neutral-700 w-full mt-4">
-          <div class="flex justify-between">
-            <div class="w-48">
-              <BookOpenIcon class="w-8 text-rose-600 inline" />
+          <div class="flex justify-between items-center">
+            <div class="w-64">
+              <CalendarDaysIcon class="w-8 text-neutral-500 inline" />
               <p class="ml-4 inline text-neutral-50">Start Date</p>
             </div>
             <div>
-              <Datepicker v-model="date" :enable-time-picker="false" />
-              <!-- <input type="date" /> -->
+              <Datepicker dark v-model="date" :enable-time-picker="false" :format="format" />
             </div>
           </div>
         </div>
         <button class="p-4 rounded-lg mr-4 bg-neutral-700 w-full mt-4">
-          <div class="flex text-rose-600">
+          <div class="flex text-rose-500">
             <TrashIcon class="w-6 mr-2" />
             <p class="text-lg">Delete</p>
           </div>
@@ -50,10 +54,21 @@
 </template>
 
 <script setup lang="ts">
-import { BookOpenIcon, TrashIcon } from '@heroicons/vue/24/solid';
+import {
+  BookOpenIcon,
+  TrashIcon,
+  ArrowPathRoundedSquareIcon,
+  FireIcon,
+  CalendarDaysIcon,
+} from '@heroicons/vue/24/solid';
 import { ref } from 'vue';
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
+import dayjs from 'dayjs';
 
-const date = ref();
+const format = (date: Date) => {
+  return dayjs(date).format('DD MMM YYYY');
+};
+
+const date = ref(new Date());
 </script>
