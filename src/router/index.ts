@@ -15,7 +15,7 @@ const router = createRouter({
       component: MainScreen,
     },
     {
-      path: '/edit',
+      path: '/edit/:id',
       name: 'edit',
       component: AddEditScreen,
     },
