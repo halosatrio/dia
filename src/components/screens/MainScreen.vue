@@ -8,7 +8,7 @@
         </RouterLink>
         <span class="text-zinc-100 text-2xl font-bold">TODAY</span>
       </div>
-      <RouterLink to="/edit">
+      <RouterLink to="/edit/1">
         <PlusCircleIcon class="h-8 text-rose-600" />
       </RouterLink>
     </header>
@@ -27,108 +27,30 @@
 
     <!-- main section -->
     <main class="mt-8">
-      <RouterLink to="/detail/1" class="flex justify-between rounded-lg bg-neutral-700 p-2 mb-4">
-        <div class="flex items-center">
-          <div class="w-12 h-12 flex bg-rose-600 items-center justify-center rounded-full">
-            <BookOpenIcon class="w-8 text-neutral-200" />
-          </div>
-          <div class="ml-3 flex flex-col">
-            <span class="text-xl font-bold text-neutral-200">READ</span>
-            <div class="flex gap-1 items-center">
-              <div class="w-4 h-4 bg-rose-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-rose-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-rose-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-rose-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center">
-          <p class="text-neutral-300 mr-1 text-sm">1/1</p>
-          <CheckCircleIcon class="font-bold w-12 text-rose-500" />
-        </div>
-      </RouterLink>
-
-      <div class="flex justify-between rounded-lg bg-neutral-700 p-2 mb-4">
-        <div class="flex items-center">
-          <div class="w-12 h-12 flex bg-blue-600 items-center justify-center rounded-full">
-            <BookOpenIcon class="w-8 text-neutral-200" />
-          </div>
-          <div class="ml-3 flex flex-col">
-            <span class="text-xl font-bold text-neutral-200">CODE</span>
-            <div class="flex gap-1 items-center">
-              <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
-              <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
-              <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
-              <div class="w-4 h-4 border-[3px] border-neutral-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center">
-          <p class="text-neutral-300 mr-1 text-sm">0/1</p>
-          <MinusCircleIcon class="font-bold w-12 text-blue-500" />
-        </div>
-      </div>
-      <div class="flex justify-between rounded-lg bg-neutral-700 p-2 mb-4">
-        <div class="flex items-center">
-          <div class="w-12 h-12 flex bg-yellow-500 items-center justify-center rounded-full">
-            <BookOpenIcon class="w-8 text-neutral-200" />
-          </div>
-          <div class="ml-3 flex flex-col">
-            <span class="text-xl font-bold text-neutral-200">WORKOUT</span>
-            <div class="flex gap-1 items-center">
-              <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
-              <div class="w-4 h-4 border-[3px] border-neutral-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center">
-          <p class="text-neutral-300 mr-1 text-sm">0/1</p>
-          <MinusCircleIcon class="font-bold w-12 text-yellow-400" />
-        </div>
-      </div>
-      <div class="flex justify-between rounded-lg bg-neutral-700 p-2 mb-4">
-        <div class="flex items-center">
-          <div class="w-12 h-12 flex bg-lime-500 items-center justify-center rounded-full">
-            <BookOpenIcon class="w-8 text-neutral-200" />
-          </div>
-          <div class="ml-3 flex flex-col">
-            <span class="text-xl font-bold text-neutral-200">LEARN SPANISH</span>
-            <div class="flex gap-1 items-center">
-              <div class="w-4 h-4 bg-lime-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-lime-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-lime-500 rounded-full"></div>
-              <div class="w-4 h-4 border-[3px] border-neutral-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-              <div class="w-4 h-4 bg-neutral-500 rounded-full"></div>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center">
-          <p class="text-neutral-300 mr-1 text-sm">0/1</p>
-          <MinusCircleIcon class="font-bold w-12 text-lime-500" />
-        </div>
-      </div>
+      <HabitCard
+        v-for="habit in habitItems"
+        :key="habit.id"
+        :title="habit.title"
+        :route="habit.id"
+        :color="habit.color"
+        :is-checked="habit.isChecked"
+        :count="habit.count"
+        :total="habit.total"
+      >
+        <template #icon>
+          <BookOpenIcon class="w-8 text-neutral-200" />
+        </template>
+      </HabitCard>
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
-import { CogIcon, MinusCircleIcon } from '@heroicons/vue/24/outline';
-import { PlusCircleIcon, BookOpenIcon, CheckCircleIcon } from '@heroicons/vue/24/solid';
+import { CogIcon } from '@heroicons/vue/24/outline';
+import { PlusCircleIcon, BookOpenIcon } from '@heroicons/vue/24/solid';
 import dayjs from 'dayjs';
+import HabitCard from '../HabitCard.vue';
 
 const today = dayjs();
 
@@ -138,6 +60,50 @@ for (let i = 1; i < 7; i++) {
   let res = today.subtract(i, 'day');
   last7days.push(res);
 }
+
+type habit = Array<{
+  title: string;
+  id: string;
+  color: string;
+  isChecked: boolean;
+  count: number;
+  total: number;
+}>;
+
+const habitItems: habit = [
+  {
+    title: 'read',
+    id: '001',
+    color: 'rose-500',
+    isChecked: true,
+    count: 1,
+    total: 1,
+  },
+  {
+    title: 'code',
+    id: '002',
+    color: 'blue-500',
+    isChecked: false,
+    count: 0,
+    total: 1,
+  },
+  {
+    title: 'workout',
+    id: '003',
+    color: 'yellow-500',
+    isChecked: false,
+    count: 0,
+    total: 1,
+  },
+  {
+    title: 'learn spanish',
+    id: '004',
+    color: 'lime-500',
+    isChecked: true,
+    count: 1,
+    total: 1,
+  },
+];
 
 // console.log('last7days', last7days);
 </script>
