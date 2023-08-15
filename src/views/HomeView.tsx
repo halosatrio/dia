@@ -23,7 +23,7 @@ const habitItems: habit[] = [
   {
     title: 'read',
     id: '001',
-    color: 'rose-500',
+    color: 'bg-rose-500',
     isChecked: true,
     count: 1,
     total: 1,
@@ -32,7 +32,7 @@ const habitItems: habit[] = [
   {
     title: 'code',
     id: '002',
-    color: 'blue-500',
+    color: 'bg-blue-500',
     isChecked: false,
     count: 0,
     total: 1,
@@ -41,7 +41,7 @@ const habitItems: habit[] = [
   {
     title: 'workout',
     id: '003',
-    color: 'yellow-500',
+    color: 'bg-yellow-500',
     isChecked: false,
     count: 0,
     total: 1,
@@ -50,7 +50,7 @@ const habitItems: habit[] = [
   {
     title: 'learn spanish',
     id: '004',
-    color: 'lime-500',
+    color: 'bg-lime-500',
     isChecked: true,
     count: 1,
     total: 1,
