@@ -8,6 +8,8 @@ import { habitItems } from '@/data/habbit';
 
 const HomeView = () => {
   const [last7days, setLast7days] = useState<Dayjs[]>([]);
+  const [selectedDate, setSelectedDate] = useState(dayjs());
+  const today = dayjs();
 
   useEffect(() => {
     const today = dayjs();
@@ -18,6 +20,22 @@ const HomeView = () => {
     }
     setLast7days(res);
   }, []);
+
+  const compareToday = (today: Dayjs, select: Dayjs) => {
+    if (today.format('YYYY-MM-DD') === select.format('YYYY-MM-DD')) {
+      return 'border-2 border-yellow-400';
+    } else {
+      return '';
+    }
+  };
+
+  const compareSelected = (item: Dayjs, select: Dayjs) => {
+    if (select.format('YYYY-MM-DD') === item.format('YYYY-MM-DD')) {
+      return 'bg-yellow-400';
+    } else {
+      return 'bg-neutral-700';
+    }
+  };
 
   return (
     <div className="w-full max-w-[480px] h-screen bg-zinc-800 my-0 mx-auto pt-4 px-4 pb-16">
@@ -38,13 +56,32 @@ const HomeView = () => {
       <div className="mt-4 flex flex-row-reverse justify-between">
         {last7days.length !== 0
           ? last7days.map((item, idx) => (
-              <div
-                className="bg-neutral-700 rounded-lg py-1 flex flex-col items-center w-11"
+              <button
+                onClick={() => setSelectedDate(item)}
+                className={`rounded-lg py-1 flex flex-col items-center w-11 
+                  ${compareToday(today, item)} ${compareSelected(item, selectedDate)}
+                `}
                 key={idx}
               >
-                <h4 className="text-xl font-bold text-neutral-100">{item.format('D')}</h4>
-                <p className="text-sm text-neutral-300">{item.format('ddd')}</p>
-              </div>
+                <h4
+                  className={`text-xl font-bold ${
+                    selectedDate.format('YYYY-MM-DD') === item.format('YYYY-MM-DD')
+                      ? 'text-neutral-700'
+                      : 'text-neutral-100'
+                  }`}
+                >
+                  {item.format('D')}
+                </h4>
+                <p
+                  className={`text-sm text-neutral-200 ${
+                    selectedDate.format('YYYY-MM-DD') === item.format('YYYY-MM-DD')
+                      ? 'text-neutral-700'
+                      : 'text-neutral-200'
+                  }`}
+                >
+                  {item.format('ddd')}
+                </p>
+              </button>
             ))
           : null}
       </div>
