@@ -1,63 +1,10 @@
 import { Link } from 'react-router-dom';
 import { CogIcon } from '@heroicons/react/24/outline';
-import { PlusCircleIcon, BookOpenIcon } from '@heroicons/react/24/solid';
+import { PlusCircleIcon } from '@heroicons/react/24/solid';
 import dayjs, { type Dayjs } from 'dayjs';
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import HabitCard from '../components/HabitCard';
-
-export type habit = {
-  title: string;
-  id: string;
-  color: string;
-  txColor: string;
-  isChecked: boolean;
-  count: number;
-  total: number;
-  icon: ReactNode;
-};
-
-const habitItems: habit[] = [
-  {
-    title: 'read',
-    id: '001',
-    color: 'bg-rose-500',
-    txColor: 'text-rose-500',
-    isChecked: true,
-    count: 1,
-    total: 1,
-    icon: <BookOpenIcon className="w-8 text-neutral-200" />,
-  },
-  {
-    title: 'code',
-    id: '002',
-    color: 'bg-blue-500',
-    txColor: 'text-blue-500',
-    isChecked: false,
-    count: 0,
-    total: 1,
-    icon: <BookOpenIcon className="w-8 text-neutral-200" />,
-  },
-  {
-    title: 'workout',
-    id: '003',
-    color: 'bg-yellow-500',
-    txColor: 'text-yellow-500',
-    isChecked: false,
-    count: 0,
-    total: 1,
-    icon: <BookOpenIcon className="w-8 text-neutral-200" />,
-  },
-  {
-    title: 'learn spanish',
-    id: '004',
-    color: 'bg-lime-500',
-    txColor: 'text-lime-500',
-    isChecked: true,
-    count: 1,
-    total: 1,
-    icon: <BookOpenIcon className="w-8 text-neutral-200" />,
-  },
-];
+import { habitItems } from '@/data/habbit';
 
 const HomeView = () => {
   const [last7days, setLast7days] = useState<Dayjs[]>([]);
@@ -105,7 +52,15 @@ const HomeView = () => {
       {/* main section */}
       <main className="mt-8">
         {habitItems.map((habit) => (
-          <HabitCard {...habit} />
+          <HabitCard
+            title={habit.title}
+            id={habit.id}
+            icon={habit.icon}
+            color={habit.color}
+            isChecked={habit.isChecked}
+            count={habit.count}
+            total={habit.total}
+          />
         ))}
       </main>
     </div>
