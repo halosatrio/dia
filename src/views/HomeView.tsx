@@ -29,7 +29,7 @@ const HomeView = () => {
           </Link>
           <span className="text-zinc-100 text-2xl font-bold">TODAY</span>
         </div>
-        <Link to="/edit/1">
+        <Link to="/add">
           <PlusCircleIcon className="h-8 text-rose-600" />
         </Link>
       </header>
