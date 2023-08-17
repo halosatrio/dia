@@ -8,19 +8,23 @@ import {
   PlusIcon,
   MinusIcon,
 } from '@heroicons/react/24/solid';
+import { useState } from 'react';
+import DatePicker from 'react-datepicker';
 import { useNavigate } from 'react-router-dom';
 
+await import('react-datepicker/dist/react-datepicker.css');
+
 const AddEditView = () => {
+  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const [perDayCounter, setPerDayCounter] = useState(1);
+  const [daysPerCounter, setDaysPerCounter] = useState(1);
   const navigate = useNavigate();
-  const goBack = () => {
-    navigate(-1);
-  };
 
   return (
     <div className="w-full max-w-[480px] h-screen bg-zinc-800 my-0 mx-auto flex flex-col justify-start">
       {/* <!-- header back navigation --> */}
       <header className="pt-4 mb-8 ml-2">
-        <button onClick={goBack} className="flex items-center">
+        <button onClick={() => navigate(-1)} className="flex items-center">
           <ChevronLeftIcon className="h-8 text-neutral-100 mr-2" />
           <span className="text-zinc-100 text-xl">Back</span>
         </button>
@@ -45,11 +49,15 @@ const AddEditView = () => {
                 <FireIcon className="w-6 text-neutral-50" />
               </div>
               <div className="w-full flex justify-between text-neutral-50 pb-4 border-b border-neutral-600 items-center">
-                <p>1x per day</p>
+                <p>{perDayCounter}x per day</p>
                 <div className="flex px-4 py-2 bg-neutral-500 rounded-md mr-2">
-                  <MinusIcon className="w-4 text-neutral-50 mr-3" />
+                  <button onClick={() => setPerDayCounter((prev) => prev - 1)}>
+                    <MinusIcon className="w-4 text-neutral-50 mr-3" />
+                  </button>
                   <div className="border-r border-neutral-600"></div>
-                  <PlusIcon className="w-4 text-neutral-50 ml-3" />
+                  <button onClick={() => setPerDayCounter((prev) => prev + 1)}>
+                    <PlusIcon className="w-4 text-neutral-50 ml-3" />
+                  </button>
                 </div>
               </div>
             </div>
@@ -58,12 +66,34 @@ const AddEditView = () => {
                 <ArrowPathRoundedSquareIcon className="w-6 text-neutral-50" />
               </div>
               <div className="w-full flex justify-between text-neutral-50 items-center">
-                <p>7 days per</p>
-                <div className="flex px-4 py-2 bg-neutral-500 rounded-md mr-2">
-                  <button>week</button>
-                  <MinusIcon className="w-4 text-neutral-50 mr-3" />
-                  <div className="border-r border-neutral-600"></div>
-                  <PlusIcon className="w-4 text-neutral-50 ml-3" />
+                <p>{daysPerCounter} days per</p>
+                <div className="flex">
+                  <select className="mr-3 bg-transparent text-center">
+                    <option className="text-neutral-800" value="week">
+                      Week
+                    </option>
+                    <option className="text-neutral-800" value="2 week">
+                      2 Weeks
+                    </option>
+                    <option className="text-neutral-800" value="3 weeks">
+                      3 Weeks
+                    </option>
+                    <option className="text-neutral-800" value="4 week">
+                      4 Weeks
+                    </option>
+                    <option className="text-neutral-800" value="month">
+                      Month
+                    </option>
+                  </select>
+                  <div className="flex px-4 py-2 bg-neutral-500 rounded-md mr-2">
+                    <button onClick={() => setDaysPerCounter((prev) => prev - 1)}>
+                      <MinusIcon className="w-4 text-neutral-50 mr-3" />
+                    </button>
+                    <div className="border-r border-neutral-600"></div>
+                    <button onClick={() => setDaysPerCounter((prev) => prev + 1)}>
+                      <PlusIcon className="w-4 text-neutral-50 ml-3" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -75,14 +105,13 @@ const AddEditView = () => {
               </div>
               <div className="flex justify-between items-center w-full">
                 <p className="text-neutral-50">Start Date</p>
-                <div className="w-44">
-                  {/* <Datepicker
-                  dark
-                  v-model="date"
-                  :enable-time-picker="false"
-                  :format="format"
-                  position="right"
-                /> */}
+                <div className="w-32">
+                  <DatePicker
+                    selected={startDate}
+                    dateFormat="dd MMM yyyy"
+                    onChange={(date) => setStartDate(date)}
+                    className="w-full text-center px-2 py-1 rounded-lg bg-neutral-500 text-neutral-50"
+                  />
                 </div>
               </div>
             </div>
