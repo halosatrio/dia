@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { habit } from '../views/HomeView';
 
 const HabitCard = (props: habit) => {
-  const { title, id, color, isChecked, count, total, icon } = props;
+  const { title, id, color, isChecked, count, total, icon, txColor } = props;
 
   return (
     <Link to={`detail/${id}`}>
@@ -29,9 +29,9 @@ const HabitCard = (props: habit) => {
         <div className="flex items-center">
           <p className="text-neutral-300 mr-1 text-sm">{count + '/' + total}</p>
           {isChecked ? (
-            <CheckCircleIcon className={`font-bold w-12 ${color}`} />
+            <CheckCircleIcon className={`font-bold w-12 ${txColor}`} />
           ) : (
-            <MinusCircleIcon className={`font-bold w-12 ${color}`} />
+            <MinusCircleIcon className={`font-bold w-12 ${txColor}`} />
           )}
         </div>
       </div>

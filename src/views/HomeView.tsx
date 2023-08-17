@@ -9,21 +9,19 @@ export type habit = {
   title: string;
   id: string;
   color: string;
+  txColor: string;
   isChecked: boolean;
   count: number;
   total: number;
   icon: ReactNode;
 };
 
-// type HomeViewProps = {
-//   items: Array<habit>;
-// };
-
 const habitItems: habit[] = [
   {
     title: 'read',
     id: '001',
     color: 'bg-rose-500',
+    txColor: 'text-rose-500',
     isChecked: true,
     count: 1,
     total: 1,
@@ -33,6 +31,7 @@ const habitItems: habit[] = [
     title: 'code',
     id: '002',
     color: 'bg-blue-500',
+    txColor: 'text-blue-500',
     isChecked: false,
     count: 0,
     total: 1,
@@ -42,6 +41,7 @@ const habitItems: habit[] = [
     title: 'workout',
     id: '003',
     color: 'bg-yellow-500',
+    txColor: 'text-yellow-500',
     isChecked: false,
     count: 0,
     total: 1,
@@ -51,6 +51,7 @@ const habitItems: habit[] = [
     title: 'learn spanish',
     id: '004',
     color: 'bg-lime-500',
+    txColor: 'text-lime-500',
     isChecked: true,
     count: 1,
     total: 1,
@@ -104,15 +105,7 @@ const HomeView = () => {
       {/* main section */}
       <main className="mt-8">
         {habitItems.map((habit) => (
-          <HabitCard
-            title={habit.title}
-            id={habit.id}
-            icon={habit.icon}
-            color={habit.color}
-            isChecked={habit.isChecked}
-            count={habit.count}
-            total={habit.total}
-          />
+          <HabitCard {...habit} />
         ))}
       </main>
     </div>
