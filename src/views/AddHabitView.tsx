@@ -1,3 +1,4 @@
+import Modal from '@/components/Modal';
 import {
   BookOpenIcon,
   ArrowPathRoundedSquareIcon,
@@ -35,9 +36,9 @@ const AddHabitView = () => {
         <div className="px-4">
           {/* section title and icon */}
           <div className="flex mb-10">
-            <button className="p-3 rounded-lg mr-4 bg-neutral-700">
+            <Modal>
               <BookOpenIcon className="w-8 text-rose-500" />
-            </button>
+            </Modal>
             <input
               className="rounded-lg bg-neutral-700 px-4 text-neutral-200 text-lg w-full"
               onChange={(e) => setHabitName(e.target.value)}

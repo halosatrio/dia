@@ -42,6 +42,19 @@ export const TEXT_COLORS: colorsObject = {
   rose: 'text-rose-500',
 };
 
+export const COLORS: ITEM_COLORS[] = [
+  'red',
+  'orange',
+  'yellow',
+  'lime',
+  'emerald',
+  'cyan',
+  'sky',
+  'indigo',
+  'purple',
+  'rose',
+];
+
 // export const ICON = {
 //   book: <BookOpenIcon />,
 // };
