@@ -5,23 +5,23 @@ import { Link } from 'react-router-dom';
 
 const DetailHabitView = () => {
   return (
-    <div className="w-full max-w-[480px] h-screen bg-zinc-800 my-0 mx-auto">
-      {/* <!-- header --> */}
-      <header className="flex justify-between bg-rose-600 h-20 px-5">
-        <div className="flex items-center">
-          <div className="w-12 h-12 flex bg-neutral-200 items-center justify-center rounded-full">
-            <BookOpenIcon className="w-8 text-rose-600" />
+    <div className="w-full max-w-[480px] h-screen bg-zinc-800 my-0 mx-auto flex flex-col justify-between">
+      <main>
+        {/* <!-- header --> */}
+        <section className="flex justify-between bg-rose-600 h-20 px-5">
+          <div className="flex items-center">
+            <div className="w-12 h-12 flex bg-neutral-200 items-center justify-center rounded-full">
+              <BookOpenIcon className="w-8 text-rose-600" />
+            </div>
+            <span className="ml-3 text-2xl font-bold text-neutral-200">READ</span>
           </div>
-          <span className="ml-3 text-2xl font-bold text-neutral-200">READ</span>
-        </div>
-        <button>
-          <Link to="/">
-            <XCircleIcon className="h-8 text-neutral-100" />
-          </Link>
-        </button>
-      </header>
+          <button>
+            <Link to="/">
+              <XCircleIcon className="h-8 text-neutral-100" />
+            </Link>
+          </button>
+        </section>
 
-      <main className="flex flex-col justify-between h-5/6">
         {/* <!-- section 1 --> */}
         <section className="p-4">
           <div className="rounded-xl bg-zinc-700 px-2 py-3 grid grid-cols-3 mb-4">
@@ -65,21 +65,20 @@ const DetailHabitView = () => {
           </div>
 
           {/* <!-- section 4: calendar --> */}
-          {/* <div className="rounded-xl bg-zinc-700 py-3 px-4 mb-4">
-          <p className="text-neutral-200 font-bold mb-4">Calendar</p>
-          <Calendar transparent borderless expanded is-dark />
-        </div> */}
+          <div className="rounded-xl bg-zinc-700 py-3 px-4 mb-4 h-56">
+            <p className="text-neutral-200 font-bold mb-4">Calendar</p>
+          </div>
         </section>
-
-        {/* <!-- footer save button --> */}
-        <div className="px-4 pt-4 pb-8 border-t border-neutral-600">
-          <Link to="/edit/1">
-            <button className="bg-rose-500 text-neutral-50 py-4 w-full rounded-lg mx-auto">
-              EDIT
-            </button>
-          </Link>
-        </div>
       </main>
+
+      {/* <!-- footer save button --> */}
+      <div className="px-4 pt-4 pb-8 border-t border-neutral-600">
+        <Link to="/edit/1">
+          <button className="bg-rose-500 text-neutral-50 py-4 w-full rounded-lg mx-auto">
+            EDIT
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

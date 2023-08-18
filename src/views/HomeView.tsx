@@ -2,24 +2,25 @@ import { Link } from 'react-router-dom';
 import { CogIcon } from '@heroicons/react/24/outline';
 import { PlusCircleIcon } from '@heroicons/react/24/solid';
 import dayjs, { type Dayjs } from 'dayjs';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import HabitCard from '../components/HabitCard';
 import { habitItems } from '@/data/habbit';
 
 const HomeView = () => {
-  const [last7days, setLast7days] = useState<Dayjs[]>([]);
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const today = dayjs();
 
-  useEffect(() => {
+  const calculateLast7Days = () => {
     const today = dayjs();
     const res = [today];
     for (let i = 1; i < 7; i++) {
       const temp = today.subtract(i, 'day');
       res.push(temp);
     }
-    setLast7days(res);
-  }, []);
+    return res;
+  };
+
+  const last7days = useMemo(calculateLast7Days, []);
 
   const compareToday = (today: Dayjs, select: Dayjs) => {
     if (today.format('YYYY-MM-DD') === select.format('YYYY-MM-DD')) {

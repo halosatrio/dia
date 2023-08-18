@@ -1,6 +1,7 @@
 import Modal from '@/components/Modal';
+import { TEXT_COLORS } from '@/config/constant';
+import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
 import {
-  BookOpenIcon,
   ArrowPathRoundedSquareIcon,
   FireIcon,
   CalendarDaysIcon,
@@ -8,6 +9,7 @@ import {
   PlusIcon,
   MinusIcon,
 } from '@heroicons/react/24/solid';
+import clsx from 'clsx';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { Link } from 'react-router-dom';
@@ -37,7 +39,7 @@ const AddHabitView = () => {
           {/* section title and icon */}
           <div className="flex mb-10">
             <Modal>
-              <BookOpenIcon className="w-8 text-rose-500" />
+              <QuestionMarkCircleIcon className={clsx('w-8', TEXT_COLORS['red'])} />
             </Modal>
             <input
               className="rounded-lg bg-neutral-700 px-4 text-neutral-200 text-lg w-full"
