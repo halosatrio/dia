@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { habit } from '@/data/habbit';
 import { BG_COLORS, TEXT_COLORS } from '@/config/constant';
 import { useState } from 'react';
+import clsx from 'clsx';
 
 const HabitCard = (props: habit) => {
   const { title, id, color, total } = props;
@@ -27,7 +28,12 @@ const HabitCard = (props: habit) => {
               <div className={`w-4 h-4 rounded-full ${BG_COLORS[color]}`}></div>
               <div className={`w-4 h-4 rounded-full ${BG_COLORS[color]}`}></div>
               <div className={`w-4 h-4 rounded-full ${BG_COLORS[color]}`}></div>
-              <div className="w-4 h-4 bg-neutral-500 rounded-full"></div>
+              <div
+                className={clsx(
+                  'w-4 h-4 rounded-full',
+                  counter === total ? BG_COLORS[color] : 'bg-neutral-500',
+                )}
+              ></div>
             </div>
           </div>
         </div>

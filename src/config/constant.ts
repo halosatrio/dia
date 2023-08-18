@@ -55,6 +55,19 @@ export const COLORS: ITEM_COLORS[] = [
   'rose',
 ];
 
+export const SELECTED_ICON_COLORS: colorsObject = {
+  red: 'bg-red-900',
+  orange: 'bg-orange-800',
+  yellow: 'bg-yellow-800',
+  lime: 'bg-lime-800',
+  emerald: 'bg-emerald-900',
+  cyan: 'bg-cyan-800',
+  sky: 'bg-sky-800',
+  indigo: 'bg-indigo-900',
+  purple: 'bg-purple-800',
+  rose: 'bg-rose-800',
+};
+
 // export const ICON = {
 //   book: <BookOpenIcon />,
 // };

@@ -1,5 +1,12 @@
-import { BG_COLORS, COLORS, ITEM_COLORS } from '@/config/constant';
-import { XCircleIcon } from '@heroicons/react/24/solid';
+import {
+  BG_COLORS,
+  COLORS,
+  ITEM_COLORS,
+  SELECTED_ICON_COLORS,
+  TEXT_COLORS,
+} from '@/config/constant';
+import { XCircleIcon, BookOpenIcon } from '@heroicons/react/24/solid';
+import clsx from 'clsx';
 import { ReactElement, useState } from 'react';
 
 type IconModalProps = {
@@ -9,6 +16,9 @@ type IconModalProps = {
 const Modal = ({ children }: IconModalProps) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedColor, setSelectedColor] = useState<ITEM_COLORS>('red');
+  const [selectedIcon, setSelectedIcon] = useState(0);
+
+  const iconsCol = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <>
       <button
@@ -20,7 +30,7 @@ const Modal = ({ children }: IconModalProps) => {
       {showModal ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-md">
+            <div className="relative my-6 mx-auto w-[23rem]">
               {/*content*/}
               <div className="border-neutral-500 border rounded-lg shadow-lg relative flex flex-col w-full bg-zinc-800 outline-none focus:outline-none">
                 {/* header exit button */}
@@ -48,13 +58,28 @@ const Modal = ({ children }: IconModalProps) => {
                       </button>
                     ))}
                   </div>
-                  <div className="rounded-lg bg-neutral-700 mt-3 py-3 px-3 w-full flex justify-around">
-                    <p className="text-slate-500 text-lg leading-relaxed">
-                      I always felt like I could do anything. That’s the main thing people are
-                      controlled by! Thoughts- their perception of themselves! They're slowed down
-                      by their perception of themselves. If you're taught you can’t do anything, you
-                      won’t do anything. I was taught I could do everything.
-                    </p>
+                  <div className="rounded-lg bg-neutral-700 mt-3 py-3 w-full flex justify-around">
+                    <div className="grid grid-cols-5 gap-5">
+                      {iconsCol.map((item) => (
+                        <button
+                          key={item}
+                          className={clsx(
+                            'p-2 rounded-full opacity-80',
+                            selectedIcon === item ? SELECTED_ICON_COLORS[selectedColor] : null,
+                          )}
+                          onClick={() => setSelectedIcon(item)}
+                        >
+                          <BookOpenIcon
+                            className={clsx(
+                              'w-7',
+                              selectedIcon === item
+                                ? TEXT_COLORS[selectedColor]
+                                : 'text-neutral-400',
+                            )}
+                          />
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
