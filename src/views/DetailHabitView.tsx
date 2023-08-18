@@ -1,19 +1,46 @@
+import { BG_COLORS, TEXT_COLORS } from '@/config/constant';
+import { habitData, type habit } from '@/data/habbit';
 import { XCircleIcon } from '@heroicons/react/24/outline';
 import { BookOpenIcon } from '@heroicons/react/24/solid';
+import clsx from 'clsx';
 import dayjs from 'dayjs';
-import { Link } from 'react-router-dom';
+import { useMemo } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 const DetailHabitView = () => {
+  const { id } = useParams();
+
+  const getDetail = (item: string | undefined): habit | undefined => {
+    if (item !== undefined) {
+      return habitData[item];
+    }
+    return undefined;
+  };
+
+  const habitDetail = useMemo(() => getDetail(id), [id]);
+
   return (
     <div className="w-full max-w-[480px] h-screen bg-zinc-800 my-0 mx-auto flex flex-col justify-between">
       <main>
         {/* <!-- header --> */}
-        <section className="flex justify-between bg-rose-600 h-20 px-5">
+        <section
+          className={clsx(
+            'flex justify-between h-20 px-5',
+            habitDetail !== undefined ? BG_COLORS[habitDetail.color] : null,
+          )}
+        >
           <div className="flex items-center">
             <div className="w-12 h-12 flex bg-neutral-200 items-center justify-center rounded-full">
-              <BookOpenIcon className="w-8 text-rose-600" />
+              <BookOpenIcon
+                className={clsx(
+                  'w-8',
+                  habitDetail !== undefined ? TEXT_COLORS[habitDetail.color] : null,
+                )}
+              />
             </div>
-            <span className="ml-3 text-2xl font-bold text-neutral-200">READ</span>
+            <span className="ml-3 text-2xl font-bold text-neutral-200">
+              {habitDetail !== undefined ? habitDetail.title.toUpperCase() : ''}
+            </span>
           </div>
           <button>
             <Link to="/">

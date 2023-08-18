@@ -1,4 +1,4 @@
-import { BookOpenIcon, CheckCircleIcon } from '@heroicons/react/24/solid';
+import { CheckCircleIcon } from '@heroicons/react/24/solid';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 import { habit } from '@/data/habbit';
@@ -7,7 +7,7 @@ import { useState } from 'react';
 import clsx from 'clsx';
 
 const HabitCard = (props: habit) => {
-  const { title, id, color, total } = props;
+  const { title, id, color, total, icon } = props;
   const [counter, setCounter] = useState(0);
 
   return (
@@ -17,7 +17,7 @@ const HabitCard = (props: habit) => {
           <div
             className={`w-12 h-12 flex items-center justify-center rounded-full ${BG_COLORS[color]}`}
           >
-            <BookOpenIcon className="w-8 text-neutral-200" />
+            {icon}
           </div>
           <div className="ml-3 flex flex-col">
             <span className="text-xl font-bold text-neutral-200">{title.toUpperCase()}</span>

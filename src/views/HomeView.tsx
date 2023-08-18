@@ -1,10 +1,56 @@
 import { Link } from 'react-router-dom';
 import { CogIcon } from '@heroicons/react/24/outline';
-import { PlusCircleIcon } from '@heroicons/react/24/solid';
+import {
+  AcademicCapIcon,
+  BookOpenIcon,
+  CodeBracketIcon,
+  FireIcon,
+  PlusCircleIcon,
+} from '@heroicons/react/24/solid';
 import dayjs, { type Dayjs } from 'dayjs';
 import { useMemo, useState } from 'react';
 import HabitCard from '../components/HabitCard';
-import { habitItems } from '@/data/habbit';
+import { habit } from '@/data/habbit';
+// import { habitItems } from '@/data/habbit';
+
+const habitItems: habit[] = [
+  {
+    title: 'read',
+    id: '001',
+    color: 'rose',
+    isChecked: true,
+    count: 1,
+    total: 1,
+    icon: <BookOpenIcon className="w-8 text-neutral-200" />,
+  },
+  {
+    title: 'code',
+    id: '002',
+    color: 'sky',
+    isChecked: false,
+    count: 0,
+    total: 1,
+    icon: <CodeBracketIcon className="w-8 text-neutral-200" />,
+  },
+  {
+    title: 'workout',
+    id: '003',
+    color: 'yellow',
+    isChecked: false,
+    count: 0,
+    total: 1,
+    icon: <FireIcon className="w-8 text-neutral-200" />,
+  },
+  {
+    title: 'learn spanish',
+    id: '004',
+    color: 'lime',
+    isChecked: true,
+    count: 1,
+    total: 1,
+    icon: <AcademicCapIcon className="w-8 text-neutral-200" />,
+  },
+];
 
 const HomeView = () => {
   const [selectedDate, setSelectedDate] = useState(dayjs());
@@ -91,6 +137,7 @@ const HomeView = () => {
       <main className="mt-8">
         {habitItems.map((habit) => (
           <HabitCard
+            key={habit.id}
             title={habit.title}
             id={habit.id}
             icon={habit.icon}

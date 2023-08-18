@@ -5,14 +5,14 @@ export type habit = {
   title: string;
   id: string;
   color: ITEM_COLORS;
-  isChecked: boolean;
-  count: number;
+  isChecked?: boolean;
+  count?: number;
   total: number;
-  icon: ReactNode;
+  icon?: ReactNode;
 };
 
-export const habitItems: habit[] = [
-  {
+export const habitData: { [key: string]: habit } = {
+  '001': {
     title: 'read',
     id: '001',
     color: 'rose',
@@ -21,7 +21,7 @@ export const habitItems: habit[] = [
     total: 1,
     icon: 'book',
   },
-  {
+  '002': {
     title: 'code',
     id: '002',
     color: 'sky',
@@ -30,7 +30,7 @@ export const habitItems: habit[] = [
     total: 1,
     icon: 'book',
   },
-  {
+  '003': {
     title: 'workout',
     id: '003',
     color: 'yellow',
@@ -39,7 +39,7 @@ export const habitItems: habit[] = [
     total: 1,
     icon: 'book',
   },
-  {
+  '004': {
     title: 'learn spanish',
     id: '004',
     color: 'lime',
@@ -48,4 +48,4 @@ export const habitItems: habit[] = [
     total: 1,
     icon: 'book',
   },
-];
+};
