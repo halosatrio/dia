@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 export type habit = {
   title: string;
-  id: string;
+  id: number;
   color: ITEM_COLORS;
   isChecked?: boolean;
   count?: number;
@@ -12,36 +12,36 @@ export type habit = {
 };
 
 export const habitData: { [key: string]: habit } = {
-  '001': {
+  '1': {
     title: 'read',
-    id: '001',
+    id: 1,
     color: 'rose',
     isChecked: true,
     count: 1,
     total: 1,
     icon: 'book',
   },
-  '002': {
+  '2': {
     title: 'code',
-    id: '002',
+    id: 2,
     color: 'sky',
     isChecked: false,
     count: 0,
     total: 1,
     icon: 'book',
   },
-  '003': {
+  '3': {
     title: 'workout',
-    id: '003',
+    id: 3,
     color: 'yellow',
     isChecked: false,
     count: 0,
     total: 1,
     icon: 'book',
   },
-  '004': {
+  '4': {
     title: 'learn spanish',
-    id: '004',
+    id: 4,
     color: 'lime',
     isChecked: true,
     count: 1,

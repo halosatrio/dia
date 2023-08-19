@@ -16,7 +16,7 @@ import { habit } from '@/data/habbit';
 const habitItems: habit[] = [
   {
     title: 'read',
-    id: '001',
+    id: 1,
     color: 'rose',
     isChecked: true,
     count: 1,
@@ -25,7 +25,7 @@ const habitItems: habit[] = [
   },
   {
     title: 'code',
-    id: '002',
+    id: 2,
     color: 'sky',
     isChecked: false,
     count: 0,
@@ -34,7 +34,7 @@ const habitItems: habit[] = [
   },
   {
     title: 'workout',
-    id: '003',
+    id: 3,
     color: 'yellow',
     isChecked: false,
     count: 0,
@@ -43,7 +43,7 @@ const habitItems: habit[] = [
   },
   {
     title: 'learn spanish',
-    id: '004',
+    id: 4,
     color: 'lime',
     isChecked: true,
     count: 1,
@@ -145,6 +145,7 @@ const HomeView = () => {
             isChecked={habit.isChecked}
             count={habit.count}
             total={habit.total}
+            selectedDate={selectedDate}
           />
         ))}
       </main>

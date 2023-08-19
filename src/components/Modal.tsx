@@ -1,3 +1,8 @@
+//
+// source: https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/react/modals/regular
+// with custom modification
+//
+
 import {
   BG_COLORS,
   COLORS,
